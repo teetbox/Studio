@@ -11,6 +11,10 @@
 		C95B18192016C54600D3A59E /* ImageTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18182016C54600D3A59E /* ImageTextfield.swift */; };
 		C95B181B2016C5F300D3A59E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181A2016C5F300D3A59E /* MainViewController.swift */; };
 		C95B181E2016C68500D3A59E /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181D2016C68500D3A59E /* UIColor+HEXString.swift */; };
+		C95B18202016CA3100D3A59E /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181F2016CA3100D3A59E /* UIView+Constraint.swift */; };
+		C95B18232016D2C000D3A59E /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18222016D2C000D3A59E /* AnimationView.swift */; };
+		C95B18252016D38000D3A59E /* ImageTextfieldVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18242016D38000D3A59E /* ImageTextfieldVIew.swift */; };
+		C95B18272016DB0300D3A59E /* AnimationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95B18262016DB0300D3A59E /* AnimationView.xib */; };
 		C98102462016C293000D78E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98102452016C293000D78E2 /* AppDelegate.swift */; };
 		C981024B2016C293000D78E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98102492016C293000D78E2 /* Main.storyboard */; };
 		C981024D2016C293000D78E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C981024C2016C293000D78E2 /* Assets.xcassets */; };
@@ -22,6 +26,10 @@
 		C95B18182016C54600D3A59E /* ImageTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextfield.swift; sourceTree = "<group>"; };
 		C95B181A2016C5F300D3A59E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C95B181D2016C68500D3A59E /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
+		C95B181F2016CA3100D3A59E /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
+		C95B18222016D2C000D3A59E /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		C95B18242016D38000D3A59E /* ImageTextfieldVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextfieldVIew.swift; sourceTree = "<group>"; };
+		C95B18262016DB0300D3A59E /* AnimationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimationView.xib; sourceTree = "<group>"; };
 		C98102422016C293000D78E2 /* Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98102452016C293000D78E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C981024A2016C293000D78E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,13 +49,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C95B18142016C4C000D3A59E /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Animations;
-			sourceTree = "<group>";
-		};
 		C95B18152016C4E700D3A59E /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,8 +62,19 @@
 			isa = PBXGroup;
 			children = (
 				C95B181D2016C68500D3A59E /* UIColor+HEXString.swift */,
+				C95B181F2016CA3100D3A59E /* UIView+Constraint.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C95B18212016D28B00D3A59E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C95B18222016D2C000D3A59E /* AnimationView.swift */,
+				C95B18262016DB0300D3A59E /* AnimationView.xib */,
+				C95B18242016D38000D3A59E /* ImageTextfieldVIew.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C98102392016C293000D78E2 = {
@@ -87,8 +99,8 @@
 				C98102452016C293000D78E2 /* AppDelegate.swift */,
 				C95B181A2016C5F300D3A59E /* MainViewController.swift */,
 				C98102492016C293000D78E2 /* Main.storyboard */,
+				C95B18212016D28B00D3A59E /* Views */,
 				C95B18152016C4E700D3A59E /* UI Elements */,
-				C95B18142016C4C000D3A59E /* Animations */,
 				C95B181C2016C66500D3A59E /* Extensions */,
 				C981024C2016C293000D78E2 /* Assets.xcassets */,
 				C981024E2016C293000D78E2 /* LaunchScreen.storyboard */,
@@ -157,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C98102502016C293000D78E2 /* LaunchScreen.storyboard in Resources */,
+				C95B18272016DB0300D3A59E /* AnimationView.xib in Resources */,
 				C981024D2016C293000D78E2 /* Assets.xcassets in Resources */,
 				C981024B2016C293000D78E2 /* Main.storyboard in Resources */,
 			);
@@ -171,7 +184,10 @@
 			files = (
 				C95B18172016C52100D3A59E /* RoundButton.swift in Sources */,
 				C98102462016C293000D78E2 /* AppDelegate.swift in Sources */,
+				C95B18252016D38000D3A59E /* ImageTextfieldVIew.swift in Sources */,
 				C95B18192016C54600D3A59E /* ImageTextfield.swift in Sources */,
+				C95B18202016CA3100D3A59E /* UIView+Constraint.swift in Sources */,
+				C95B18232016D2C000D3A59E /* AnimationView.swift in Sources */,
 				C95B181B2016C5F300D3A59E /* MainViewController.swift in Sources */,
 				C95B181E2016C68500D3A59E /* UIColor+HEXString.swift in Sources */,
 			);
