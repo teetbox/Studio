@@ -19,7 +19,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return table
     }()
     
-    let details = ["Button Animation", "Image Textfield"]
+    let demos = ["Basic Animation", "Image Textfield", "Rotation Button"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +34,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return details.count
+        return demos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = details[indexPath.row]
+        cell.textLabel?.text = demos[indexPath.row]
         cell.backgroundColor = UIColor.fromHEX(string: "#ABCDEF")
         cell.selectionStyle = .none
         
@@ -47,20 +47,21 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contentView: UIView
-        
-        switch indexPath.row {
-        case 0:
-            contentView = AnimationView()
-        case 1:
-            contentView = ImageTextfieldView()
-        default:
+        if indexPath.row == 0 {
+            let detailVC = DetailViewController()
+            detailVC.contentView = AnimationView()
+            navigationController?.pushViewController(detailVC, animated: true)
             return
         }
         
-        let detailViewController = DetailViewController()
-        detailViewController.contentView = contentView
-        navigationController?.pushViewController(detailViewController, animated: true)
+        let demoViewController: UIViewController
+        switch indexPath.row {
+        case 1:
+            demoViewController = RotationButtonVC()
+        default:
+            preconditionFailure("No display handler for demo: \(demos[indexPath.row]).")
+        }
+        navigationController?.pushViewController(demoViewController, animated: true)
     }
     
 }

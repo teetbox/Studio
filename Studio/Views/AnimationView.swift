@@ -12,7 +12,10 @@ class AnimationView: UIView {
     
     let facebookButton: RoundButton = {
         let button = RoundButton()
+        button.borderColor = .orange
+        button.borderWidth = 1.0
         button.cornerRadius = 25.0
+        button.tintColor = .orange
         button.setImage(#imageLiteral(resourceName: "facebook"), for: .normal)
         button.alpha = 0
         return button
@@ -20,7 +23,10 @@ class AnimationView: UIView {
     
     let twitterButton: RoundButton = {
         let button = RoundButton()
+        button.borderColor = .orange
+        button.borderWidth = 1.0
         button.cornerRadius = 25.0
+        button.tintColor = .orange
         button.setImage(#imageLiteral(resourceName: "twitter"), for: .normal)
         button.alpha = 0
         return button
@@ -28,7 +34,10 @@ class AnimationView: UIView {
     
     let instagramButton: RoundButton = {
         let button = RoundButton()
+        button.borderColor = .orange
+        button.borderWidth = 1.0
         button.cornerRadius = 25.0
+        button.tintColor = .orange
         button.setImage(#imageLiteral(resourceName: "instagram"), for: .normal)
         button.alpha = 0
         return button
@@ -38,7 +47,7 @@ class AnimationView: UIView {
         let button = RoundButton()
         button.cornerRadius = 25.0
         button.tintColor = UIColor.cyan
-        button.setImage(#imageLiteral(resourceName: "share"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "forward"), for: .normal)
         return button
     }()
     
