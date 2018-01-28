@@ -48,7 +48,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let detailVC = DetailViewController()
+            let detailVC = DetailVC()
             detailVC.contentView = AnimationView()
             navigationController?.pushViewController(detailVC, animated: true)
             return
@@ -68,7 +68,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
 }
 
-class DetailViewController: UIViewController {
+class DetailVC: UIViewController {
     
     var contentView: UIView!
 

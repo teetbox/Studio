@@ -10,6 +10,14 @@ import UIKit
 
 class AnimationView: UIView {
     
+    let forwardButton: RoundButton = {
+        let button = RoundButton()
+        button.cornerRadius = 25.0
+        button.tintColor = UIColor.cyan
+        button.setImage(#imageLiteral(resourceName: "forward"), for: .normal)
+        return button
+    }()
+    
     let facebookButton: RoundButton = {
         let button = RoundButton()
         button.borderColor = .orange
@@ -43,14 +51,18 @@ class AnimationView: UIView {
         return button
     }()
     
-    let shareButton: RoundButton = {
+    let googleButton: RoundButton = {
         let button = RoundButton()
+        button.borderColor = .orange
+        button.borderWidth = 1.0
         button.cornerRadius = 25.0
-        button.tintColor = UIColor.cyan
-        button.setImage(#imageLiteral(resourceName: "forward"), for: .normal)
+        button.tintColor = .orange
+        button.setImage(#imageLiteral(resourceName: "google"), for: .normal)
+        button.alpha = 0
         return button
     }()
     
+    var googleCenter: CGPoint!
     var facebookCenter: CGPoint!
     var twitterCenter: CGPoint!
     var instagramCenter: CGPoint!
@@ -70,52 +82,64 @@ class AnimationView: UIView {
     }
     
     private func setupViews() {
+        addSubview(googleButton)
+        addSubview(googleButton)
+        addConstraints(format: "H:[v0(50)]", views: googleButton)
+        addConstraints(format: "V:[v0(50)]-90-|", views: googleButton)
+        googleButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
         addSubview(twitterButton)
         addConstraints(format: "H:[v0(50)]", views: twitterButton)
-        addConstraints(format: "V:[v0(50)]-50-|", views: twitterButton)
+        addConstraints(format: "V:[v0(50)]-20-|", views: twitterButton)
         twitterButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         addSubview(facebookButton)
         addConstraints(format: "H:[v0(50)]", views: facebookButton)
-        addConstraints(format: "V:[v0(50)]-50-|", views: facebookButton)
+        addConstraints(format: "V:[v0(50)]-20-|", views: facebookButton)
         facebookButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -80).isActive = true
         
         addSubview(instagramButton)
         addConstraints(format: "H:[v0(50)]", views: instagramButton)
-        addConstraints(format: "V:[v0(50)]-50-|", views: instagramButton)
+        addConstraints(format: "V:[v0(50)]-20-|", views: instagramButton)
         instagramButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 80).isActive = true
         
-        addSubview(shareButton)
-        addConstraints(format: "H:[v0(50)]", views: shareButton)
-        addConstraints(format: "V:[v0(50)]-140-|", views: shareButton)
-        shareButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        shareButton.addTarget(self, action: #selector(toggleShareButton), for: .touchUpInside)
+        addSubview(forwardButton)
+        addConstraints(format: "H:[v0(50)]", views: forwardButton)
+        addConstraints(format: "V:[v0(50)]-150-|", views: forwardButton)
+        forwardButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        forwardButton.addTarget(self, action: #selector(toggleShareButton), for: .touchUpInside)
     }
     
     @objc func toggleShareButton() {
         if !isViewDidLoad {
+            googleCenter = googleButton.center
             facebookCenter = facebookButton.center
             twitterCenter = twitterButton.center
             instagramCenter = instagramButton.center
             
-            facebookButton.center = shareButton.center
-            twitterButton.center = shareButton.center
-            instagramButton.center = shareButton.center
+            googleButton.center = forwardButton.center
+            facebookButton.center = forwardButton.center
+            twitterButton.center = forwardButton.center
+            instagramButton.center = forwardButton.center
             
             isViewDidLoad = true
         }
         
         if isSharing {
             UIView.animate(withDuration: 0.3) {
-                self.facebookButton.center = self.shareButton.center
+                self.googleButton.center = self.forwardButton.center
+                self.googleButton.alpha = 0
+                self.facebookButton.center = self.forwardButton.center
                 self.facebookButton.alpha = 0
-                self.instagramButton.center = self.shareButton.center
+                self.instagramButton.center = self.forwardButton.center
                 self.instagramButton.alpha = 0
-                self.twitterButton.center = self.shareButton.center
+                self.twitterButton.center = self.forwardButton.center
                 self.twitterButton.alpha = 0
             }
         } else {
             UIView.animate(withDuration: 0.3) {
+                self.googleButton.center = self.googleCenter
+                self.googleButton.alpha = 1
                 self.facebookButton.center = self.facebookCenter
                 self.facebookButton.alpha = 1
                 self.instagramButton.center = self.instagramCenter

@@ -1,19 +1,19 @@
 //
-//  RotationButtonVC.swift
+//  ImageTextfieldVC.swift
 //  Studio
 //
-//  Created by Tong Tian on 1/27/18.
+//  Created by Matt Tian on 23/01/2018.
 //  Copyright © 2018 Bizersoft. All rights reserved.
 //
 
 import UIKit
 
-class RotationButtonVC: UIViewController {
-
+class ImageTextfieldVC: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
     }
-
+    
 }
