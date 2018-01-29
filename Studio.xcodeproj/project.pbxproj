@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		35FC3DF1201CB16900BEB71C /* RotationButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3DEF201CB16900BEB71C /* RotationButtonVC.swift */; };
-		35FC3DF2201CB16900BEB71C /* RotationButtonVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FC3DF0201CB16900BEB71C /* RotationButtonVC.xib */; };
 		C95B18172016C52100D3A59E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18162016C52100D3A59E /* RoundButton.swift */; };
 		C95B18192016C54600D3A59E /* ImageTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18182016C54600D3A59E /* ImageTextfield.swift */; };
 		C95B181B2016C5F300D3A59E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181A2016C5F300D3A59E /* MainVC.swift */; };
@@ -24,7 +23,6 @@
 
 /* Begin PBXFileReference section */
 		35FC3DEF201CB16900BEB71C /* RotationButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationButtonVC.swift; sourceTree = "<group>"; };
-		35FC3DF0201CB16900BEB71C /* RotationButtonVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RotationButtonVC.xib; sourceTree = "<group>"; };
 		C95B18162016C52100D3A59E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		C95B18182016C54600D3A59E /* ImageTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextfield.swift; sourceTree = "<group>"; };
 		C95B181A2016C5F300D3A59E /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 				C95B18222016D2C000D3A59E /* AnimationView.swift */,
 				C95B18242016D38000D3A59E /* ImageTextfieldVC.swift */,
 				35FC3DEF201CB16900BEB71C /* RotationButtonVC.swift */,
-				35FC3DF0201CB16900BEB71C /* RotationButtonVC.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,11 +102,19 @@
 				C95B18212016D28B00D3A59E /* Views */,
 				C95B18152016C4E700D3A59E /* UI Elements */,
 				C95B181C2016C66500D3A59E /* Extensions */,
+				C9A63948201EA6F80096EB99 /* Images */,
 				C981024C2016C293000D78E2 /* Assets.xcassets */,
 				C981024E2016C293000D78E2 /* LaunchScreen.storyboard */,
 				C98102512016C293000D78E2 /* Info.plist */,
 			);
 			path = Studio;
+			sourceTree = "<group>";
+		};
+		C9A63948201EA6F80096EB99 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +176,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35FC3DF2201CB16900BEB71C /* RotationButtonVC.xib in Resources */,
 				C98102502016C293000D78E2 /* LaunchScreen.storyboard in Resources */,
 				C981024D2016C293000D78E2 /* Assets.xcassets in Resources */,
 				C981024B2016C293000D78E2 /* Main.storyboard in Resources */,
