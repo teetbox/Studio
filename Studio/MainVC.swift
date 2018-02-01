@@ -19,7 +19,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return table
     }()
     
-    let demos = ["Basic Animation", "Image Textfield", "Rotation Button"]
+    let demos = ["Basic Animation", "Image Textfield", "Rotation Button", "Spring Animation"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +60,8 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             demoViewController = ImageTextfieldVC()
         case 2:
             demoViewController = RotationButtonVC()
+        case 3:
+            demoViewController = SpringAnimationVC()
         default:
             preconditionFailure("No display handler for demo: \(demos[indexPath.row]).")
         }
