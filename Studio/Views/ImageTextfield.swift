@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageTextfieldVC: UIViewController {
+class ImageTextfield: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

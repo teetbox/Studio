@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RotationButtonVC: UIViewController {
+class RotationButton: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

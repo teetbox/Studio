@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35A04AB9202338C200E5CD12 /* SpringAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A04AB8202338C200E5CD12 /* SpringAnimationVC.swift */; };
-		35FC3DF1201CB16900BEB71C /* RotationButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3DEF201CB16900BEB71C /* RotationButtonVC.swift */; };
+		3569DB552025D36A003593D4 /* PullToShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3569DB542025D36A003593D4 /* PullToShow.swift */; };
+		35A04AB9202338C200E5CD12 /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A04AB8202338C200E5CD12 /* SpringAnimation.swift */; };
+		35FC3DF1201CB16900BEB71C /* RotationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3DEF201CB16900BEB71C /* RotationButton.swift */; };
 		C95B18172016C52100D3A59E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18162016C52100D3A59E /* RoundButton.swift */; };
-		C95B18192016C54600D3A59E /* ImageTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18182016C54600D3A59E /* ImageTextfield.swift */; };
-		C95B181B2016C5F300D3A59E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181A2016C5F300D3A59E /* MainVC.swift */; };
+		C95B181B2016C5F300D3A59E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181A2016C5F300D3A59E /* MainViewController.swift */; };
 		C95B181E2016C68500D3A59E /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181D2016C68500D3A59E /* UIColor+HEXString.swift */; };
 		C95B18202016CA3100D3A59E /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181F2016CA3100D3A59E /* UIView+Constraint.swift */; };
 		C95B18232016D2C000D3A59E /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18222016D2C000D3A59E /* AnimationView.swift */; };
-		C95B18252016D38000D3A59E /* ImageTextfieldVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18242016D38000D3A59E /* ImageTextfieldVC.swift */; };
+		C95B18252016D38000D3A59E /* ImageTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18242016D38000D3A59E /* ImageTextfield.swift */; };
 		C98102462016C293000D78E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98102452016C293000D78E2 /* AppDelegate.swift */; };
 		C981024B2016C293000D78E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98102492016C293000D78E2 /* Main.storyboard */; };
 		C981024D2016C293000D78E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C981024C2016C293000D78E2 /* Assets.xcassets */; };
@@ -23,15 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		35A04AB8202338C200E5CD12 /* SpringAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimationVC.swift; sourceTree = "<group>"; };
-		35FC3DEF201CB16900BEB71C /* RotationButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationButtonVC.swift; sourceTree = "<group>"; };
+		3569DB542025D36A003593D4 /* PullToShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToShow.swift; sourceTree = "<group>"; };
+		35A04AB8202338C200E5CD12 /* SpringAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimation.swift; sourceTree = "<group>"; };
+		35FC3DEF201CB16900BEB71C /* RotationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationButton.swift; sourceTree = "<group>"; };
 		C95B18162016C52100D3A59E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		C95B18182016C54600D3A59E /* ImageTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextfield.swift; sourceTree = "<group>"; };
-		C95B181A2016C5F300D3A59E /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		C95B181A2016C5F300D3A59E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C95B181D2016C68500D3A59E /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
 		C95B181F2016CA3100D3A59E /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
 		C95B18222016D2C000D3A59E /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
-		C95B18242016D38000D3A59E /* ImageTextfieldVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextfieldVC.swift; sourceTree = "<group>"; };
+		C95B18242016D38000D3A59E /* ImageTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextfield.swift; sourceTree = "<group>"; };
 		C98102422016C293000D78E2 /* Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98102452016C293000D78E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C981024A2016C293000D78E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				C95B18162016C52100D3A59E /* RoundButton.swift */,
-				C95B18182016C54600D3A59E /* ImageTextfield.swift */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -73,9 +72,10 @@
 			isa = PBXGroup;
 			children = (
 				C95B18222016D2C000D3A59E /* AnimationView.swift */,
-				C95B18242016D38000D3A59E /* ImageTextfieldVC.swift */,
-				35FC3DEF201CB16900BEB71C /* RotationButtonVC.swift */,
-				35A04AB8202338C200E5CD12 /* SpringAnimationVC.swift */,
+				C95B18242016D38000D3A59E /* ImageTextfield.swift */,
+				35FC3DEF201CB16900BEB71C /* RotationButton.swift */,
+				35A04AB8202338C200E5CD12 /* SpringAnimation.swift */,
+				3569DB542025D36A003593D4 /* PullToShow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -100,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				C98102452016C293000D78E2 /* AppDelegate.swift */,
-				C95B181A2016C5F300D3A59E /* MainVC.swift */,
+				C95B181A2016C5F300D3A59E /* MainViewController.swift */,
 				C98102492016C293000D78E2 /* Main.storyboard */,
 				C95B18212016D28B00D3A59E /* Views */,
 				C95B18152016C4E700D3A59E /* UI Elements */,
@@ -185,14 +185,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C95B18172016C52100D3A59E /* RoundButton.swift in Sources */,
-				35FC3DF1201CB16900BEB71C /* RotationButtonVC.swift in Sources */,
+				35FC3DF1201CB16900BEB71C /* RotationButton.swift in Sources */,
 				C98102462016C293000D78E2 /* AppDelegate.swift in Sources */,
-				C95B18252016D38000D3A59E /* ImageTextfieldVC.swift in Sources */,
-				C95B18192016C54600D3A59E /* ImageTextfield.swift in Sources */,
+				C95B18252016D38000D3A59E /* ImageTextfield.swift in Sources */,
 				C95B18202016CA3100D3A59E /* UIView+Constraint.swift in Sources */,
 				C95B18232016D2C000D3A59E /* AnimationView.swift in Sources */,
-				35A04AB9202338C200E5CD12 /* SpringAnimationVC.swift in Sources */,
-				C95B181B2016C5F300D3A59E /* MainVC.swift in Sources */,
+				3569DB552025D36A003593D4 /* PullToShow.swift in Sources */,
+				35A04AB9202338C200E5CD12 /* SpringAnimation.swift in Sources */,
+				C95B181B2016C5F300D3A59E /* MainViewController.swift in Sources */,
 				C95B181E2016C68500D3A59E /* UIColor+HEXString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

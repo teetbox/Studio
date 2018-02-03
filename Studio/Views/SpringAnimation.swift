@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpringAnimationVC: UIViewController {
+class SpringAnimation: UIViewController {
     
     var originalCenter: CGPoint!
     

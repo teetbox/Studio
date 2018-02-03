@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     lazy var tableView: UITableView = {
         let table = UITableView()
@@ -19,7 +19,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return table
     }()
     
-    let demos = ["Basic Animation", "Image Textfield", "Rotation Button"]
+    let demos = ["Basic Animation", "Image Textfield", "Rotation Button", "Spring Animation", "Pull to Show"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let detailVC = DetailViewController()
+            let detailVC = DetailVC()
             detailVC.contentView = AnimationView()
             navigationController?.pushViewController(detailVC, animated: true)
             return
@@ -57,9 +57,14 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let demoViewController: UIViewController
         switch indexPath.row {
         case 1:
-            demoViewController = ImageTextfieldVC()
+            demoViewController = ImageTextfield()
         case 2:
-            demoViewController = RotationButtonVC()
+            demoViewController = RotationButton()
+        case 3:
+            demoViewController = SpringAnimation()
+        case 4:
+            demoViewController = PullToShow()
+            
         default:
             preconditionFailure("No display handler for demo: \(demos[indexPath.row]).")
         }
@@ -68,7 +73,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
 }
 
-class DetailViewController: UIViewController {
+class DetailVC: UIViewController {
     
     var contentView: UIView!
 
