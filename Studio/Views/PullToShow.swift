@@ -22,6 +22,14 @@ class PullToShow: UIViewController {
         return view
     }()
     
+    lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Back", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
+        return button
+    }()
+    
     var previousOffSetY: CGFloat = 0
     var counter = 0
     var initialCenter = CGPoint()
@@ -44,16 +52,44 @@ class PullToShow: UIViewController {
         initialCenter = playView.center
     }
     
-    @objc func panPiece(_ gestureRecognizer : UIPanGestureRecognizer) {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    func setUpViews() {
+        view.addSubview(navView)
+        view.addConstraints(format: "H:|[v0]|", views: navView)
+        view.addConstraints(format: "V:|[v0(120)]", views: navView)
+        
+        navView.addSubview(backButton)
+        navView.addConstraints(format: "H:|-15-[v0(60)]", views: backButton)
+        navView.addConstraints(format: "V:[v0(30)]-15-|", views: backButton)
+        
+        view.addSubview(playView)
+        view.addConstraints(format: "H:|[v0]|", views: playView)
+        view.addConstraints(format: "V:[v0(400)]", views: playView)
+        playView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        playViewBottomConstraint = playView.bottomAnchor.constraint(equalTo: navView.bottomAnchor, constant: -60)
+        playViewBottomConstraint?.isActive = true
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        playView.addGestureRecognizer(panGesture)
+        
+        view.bringSubview(toFront: navView)
+        view.bringSubview(toFront: playView)
+    }
+    
+    @objc func handleBack() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func handlePanGesture(_ gestureRecognizer : UIPanGestureRecognizer) {
         guard gestureRecognizer.view != nil else {
             return
         }
         let panView = gestureRecognizer.view!
-        
-        //        if (panView.center.x != initialCenter.x) {
-        //            panView.center.x = initialCenter.x
-        //            return
-        //        }
         
         let translation = gestureRecognizer.translation(in: panView.superview)
         if gestureRecognizer.state == .began {
@@ -108,34 +144,4 @@ class PullToShow: UIViewController {
         }
     }
     
-    
-    func setUpViews() {
-        view.addSubview(navView)
-        view.addConstraints(format: "H:|[v0]|", views: navView)
-        view.addConstraints(format: "V:|[v0(60)]", views: navView)
-        
-        view.addSubview(playView)
-        view.addConstraints(format: "H:|[v0]|", views: playView)
-        view.addConstraints(format: "V:[v0(400)]", views: playView)
-        playView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        playViewBottomConstraint = playView.bottomAnchor.constraint(equalTo: navView.bottomAnchor)
-        playViewBottomConstraint?.isActive = true
-        
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panPiece))
-        playView.addGestureRecognizer(panGesture)
-
-        view.bringSubview(toFront: navView)
-        view.bringSubview(toFront: playView)
-    }
-    
-    
-}
-
-extension PullToShow: UIGestureRecognizerDelegate {
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        let panGesture = gestureRecognizer as! UIPanGestureRecognizer
-        let velocity = panGesture.velocity(in: panGesture.view?.superview)
-        print(velocity)
-        return fabs(velocity.y) > fabs(velocity.x)
-    }
 }
