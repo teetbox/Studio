@@ -10,10 +10,41 @@ import UIKit
 
 class RotationButton: UIViewController {
     
+    var dishView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.fromHEX(string: "#000000").withAlphaComponent(0.6)
+        view.layer.cornerRadius = 10
+        return view
+    }()
+    
+    var rateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Rate this dish"
+        label.font = UIFont.systemFont(ofSize: 30)
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
+    }()
+    
+    var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Steak with Bearnaise Sauce"
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = UIColor(white: 1.0, alpha: 0.4)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    var dishImageView: UIImageView = {
+        let view = UIImageView(image: #imageLiteral(resourceName: "Steak.jpg"))
+        view.layer.cornerRadius = 8
+        view.clipsToBounds = true
+        return view
+    }()
+    
     var barViewTopConstraint: NSLayoutConstraint!
     let barView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.fromHEX(string: "#201A1A")
         view.clipsToBounds = true
         view.alpha = 0.6
         return view
@@ -96,7 +127,6 @@ class RotationButton: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.fromHEX(string: "#5A4A44")
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         // Bar buttons color
@@ -107,7 +137,10 @@ class RotationButton: UIViewController {
         
         // Bar background image
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationController?.navigationBar.backgroundColor = UIColor.brown.withAlphaComponent(0.2)
+        
+        // Bar background color
+        navigationController?.navigationBar.backgroundColor = UIColor.fromHEX(string: "#000000").withAlphaComponent(0.4)
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor.fromHEX(string: "#000000").withAlphaComponent(0.4)
         
         setupViews()
     }
@@ -119,13 +152,36 @@ class RotationButton: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.tintColor = nil
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        navigationController?.navigationBar.shadowImage = nil
         navigationController?.navigationBar.backgroundColor = nil
+        UIApplication.shared.statusBarView?.backgroundColor = nil
     }
     
     private func setupViews() {
         view.addSubview(bgImageView)
         view.addConstraints(format: "H:|[v0]|", views: bgImageView)
         view.addConstraints(format: "V:|[v0]|", views: bgImageView)
+        
+        view.addSubview(dishView)
+        view.addConstraints(format: "H:[v0(240)]", views: dishView)
+        view.addConstraints(format: "V:[v0(300)]", views: dishView)
+        dishView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        dishView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        dishView.addSubview(rateLabel)
+        dishView.addConstraints(format: "H:[v0]", views: rateLabel)
+        dishView.addSubview(descriptionLabel)
+        dishView.addConstraints(format: "H:[v0]", views: descriptionLabel)
+        dishView.addConstraints(format: "V:|-10-[v0(35)]-5-[v1(20)]", views: rateLabel, descriptionLabel)
+        rateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        dishView.addSubview(dishImageView)
+        dishView.addConstraints(format: "H:|-20-[v0]-20-|", views: dishImageView)
+        dishView.addConstraints(format: "V:|-80-[v0]-20-|", views: dishImageView)
         
         view.addSubview(barView)
         view.addConstraints(format: "H:|[v0]|", views: barView)

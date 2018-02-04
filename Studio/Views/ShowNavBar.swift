@@ -25,7 +25,9 @@ class ShowNavBar: UIViewController {
         super.viewDidLoad()
         
         let navBar = navigationController?.navigationBar
+        // Bar background image
         navBar?.setBackgroundImage(UIImage(), for: .default)
+        // Bar bottom border line color
         navBar?.shadowImage = UIImage()
         
         setupViews()
