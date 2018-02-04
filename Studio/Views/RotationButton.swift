@@ -9,14 +9,6 @@
 import UIKit
 
 class RotationButton: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = UIColor.fromHEX(string: "#5A4A44")
-        
-        setupViews()
-    }
     
     var barViewTopConstraint: NSLayoutConstraint!
     let barView: UIView = {
@@ -95,7 +87,46 @@ class RotationButton: UIViewController {
         return stack
     }()
     
+    let bgImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "Delicious.jpeg")
+        return imageView
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.fromHEX(string: "#5A4A44")
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        // Bar buttons color
+        navigationController?.navigationBar.tintColor = .white
+        
+        // Bar bottom border line color
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        // Bar background image
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        navigationController?.navigationBar.backgroundColor = UIColor.brown.withAlphaComponent(0.2)
+        
+        setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.backgroundColor = nil
+    }
+    
     private func setupViews() {
+        view.addSubview(bgImageView)
+        view.addConstraints(format: "H:|[v0]|", views: bgImageView)
+        view.addConstraints(format: "V:|[v0]|", views: bgImageView)
+        
         view.addSubview(barView)
         view.addConstraints(format: "H:|[v0]|", views: barView)
         view.addConstraints(format: "V:[v0(120)]-(-60)-|", views: barView)

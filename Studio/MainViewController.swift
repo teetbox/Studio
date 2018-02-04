@@ -19,7 +19,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return table
     }()
     
-    let demos = ["Basic Animation", "Image Textfield", "Rotation Button", "Spring Animation", "Pull to Show"]
+    let demos = ["Basic Animation", "Image Textfield", "Rotation Button", "Spring Animation", "Pull to Show",
+                 "Show Nav Bar"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             demoViewController = SpringAnimation()
         case 4:
             demoViewController = PullToShow()
+        case 5:
+            demoViewController = ShowNavBar()
             
         default:
             preconditionFailure("No display handler for demo: \(demos[indexPath.row]).")
