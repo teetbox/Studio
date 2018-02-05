@@ -10,6 +10,7 @@ import UIKit
 
 class RotationButton: UIViewController {
     
+    var dishCenter: CGPoint!
     var dishView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.fromHEX(string: "#000000").withAlphaComponent(0.6)
@@ -21,7 +22,7 @@ class RotationButton: UIViewController {
         let label = UILabel()
         label.text = "Rate this dish"
         label.font = UIFont.systemFont(ofSize: 30)
-        label.textColor = .white
+        label.textColor = UIColor(white: 1.0, alpha: 0.8)
         label.textAlignment = .center
         return label
     }()
@@ -40,6 +41,11 @@ class RotationButton: UIViewController {
         view.layer.cornerRadius = 8
         view.clipsToBounds = true
         return view
+    }()
+    
+    var thumbImageView: UIImageView = {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "thumbUp"))
+        return imageView
     }()
     
     var barViewTopConstraint: NSLayoutConstraint!
@@ -142,12 +148,17 @@ class RotationButton: UIViewController {
         navigationController?.navigationBar.backgroundColor = UIColor.fromHEX(string: "#000000").withAlphaComponent(0.4)
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.fromHEX(string: "#000000").withAlphaComponent(0.4)
         
+        let resetButton = UIBarButtonItem(title: "Reset", style: .done, target: self, action: #selector(handleReset))
+        navigationItem.rightBarButtonItem = resetButton
+        
         setupViews()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         navigationController?.setNavigationBarHidden(false, animated: true)
+        dishCenter = dishView.center
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -171,6 +182,9 @@ class RotationButton: UIViewController {
         dishView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         dishView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        dishView.addGestureRecognizer(panGesture)
+        
         dishView.addSubview(rateLabel)
         dishView.addConstraints(format: "H:[v0]", views: rateLabel)
         dishView.addSubview(descriptionLabel)
@@ -182,6 +196,13 @@ class RotationButton: UIViewController {
         dishView.addSubview(dishImageView)
         dishView.addConstraints(format: "H:|-20-[v0]-20-|", views: dishImageView)
         dishView.addConstraints(format: "V:|-80-[v0]-20-|", views: dishImageView)
+        
+        dishView.addSubview(thumbImageView)
+        dishView.addConstraints(format: "H:[v0(128)]", views: thumbImageView)
+        dishView.addConstraints(format: "V:[v0(128)]", views: thumbImageView)
+        thumbImageView.centerXAnchor.constraint(equalTo: dishView.centerXAnchor).isActive = true
+        thumbImageView.centerYAnchor.constraint(equalTo: dishView.centerYAnchor).isActive = true
+        thumbImageView.alpha = 0
         
         view.addSubview(barView)
         view.addConstraints(format: "H:|[v0]|", views: barView)
@@ -222,6 +243,58 @@ class RotationButton: UIViewController {
         twitterButton.alpha = 0
         instagramButton.alpha = 0
         googleButton.alpha = 0
+    }
+    
+    @objc func handlePanGesture(_ gestureRecognizer : UIPanGestureRecognizer) {
+        let panView = gestureRecognizer.view!
+        let point = gestureRecognizer.translation(in: view)
+        let xFromCenter = panView.center.x - view.center.x
+        let percentage = abs(xFromCenter) / view.center.x
+        let scale: CGFloat = 1 - (abs(xFromCenter) * 0.3 / view.center.x)
+        
+        panView.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        
+        if xFromCenter > 0 {
+            thumbImageView.image = #imageLiteral(resourceName: "thumbUp")
+            thumbImageView.tintColor = .green
+            panView.transform = CGAffineTransform(rotationAngle: 0.61 * percentage).scaledBy(x: scale, y: scale)
+        } else {
+            thumbImageView.image = #imageLiteral(resourceName: "thumbDown")
+            thumbImageView.tintColor = .red
+            panView.transform = CGAffineTransform(rotationAngle: -0.61 * percentage).scaledBy(x: scale, y: scale)
+        }
+        thumbImageView.alpha = percentage
+        
+        if gestureRecognizer.state == .ended {
+            if panView.center.x < 75 {
+                UIView.animate(withDuration: 0.2) {
+                    panView.center = CGPoint(x: panView.center.x - 200, y: panView.center.y + 75)
+                    panView.alpha = 0
+                }
+                return
+            } else if panView.center.x > (view.frame.width - 75) {
+                UIView.animate(withDuration: 0.2) {
+                    panView.center = CGPoint(x: panView.center.x + 200, y: panView.center.y + 75)
+                    panView.alpha = 0
+                }
+                return
+            }
+            
+            UIView.animate(withDuration: 0.2) {
+                panView.center = self.view.center
+                panView.transform = .identity
+                self.thumbImageView.alpha = 0
+            }
+        }
+    }
+    
+    @objc func handleReset() {
+        UIView.animate(withDuration: 0.3) {
+            self.dishView.center = self.dishCenter
+            self.dishView.alpha = 1
+            self.thumbImageView.alpha = 0
+            self.dishView.transform = .identity
+        }
     }
     
     @objc func toggleMenu(_ sender: UIButton) {
