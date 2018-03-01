@@ -38,6 +38,7 @@ class ShowNavBar: UIViewController {
         view.addConstraints(format: "H:|[v0]|", views: collectionView)
         view.addConstraints(format: "V:|[v0]|", views: collectionView)
     }
+    
 }
 
 extension ShowNavBar: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

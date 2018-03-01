@@ -19,8 +19,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return table
     }()
     
-    let demos = ["Basic Animation", "Image Textfield", "Rotation Button", "Spring Animation", "Pull to Show",
-                 "Show Nav Bar"]
+    let demos = ["Basic Animation", "Image Textfield", "Rotation Button", "Spring Animation", "Pull to Show", "Show Nav Bar", "Custom Nav Bar"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +66,18 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             demoViewController = PullToShow()
         case 5:
             demoViewController = ShowNavBar()
+        case 6:
+            demoViewController = CustomNavBar()
+            let demoNav = UINavigationController(rootViewController: demoViewController)
+            
+            // Here is a bug from Apple, when present a view from table cell, the first tap doesn't triggle the animation, need another tap.
+            // One way to fix it is puts the present code in main queue.
+            DispatchQueue.main.async {
+                self.present(demoNav, animated: true)
+            }
+            // Another way is calls CFRunLoopWakeUp.
+//            CFRunLoopWakeUp(CFRunLoopGetCurrent())
+            return
             
         default:
             preconditionFailure("No display handler for demo: \(demos[indexPath.row]).")
