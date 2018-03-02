@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351DF8BC2048C55600284B64 /* Redressed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 351DF8BB2048C55600284B64 /* Redressed-Regular.ttf */; };
 		3569DB552025D36A003593D4 /* PullToShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3569DB542025D36A003593D4 /* PullToShow.swift */; };
 		35A04AB9202338C200E5CD12 /* SpringAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A04AB8202338C200E5CD12 /* SpringAnimation.swift */; };
 		35C3974620269BF10034F17B /* Delicious.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 35C3974520269BF00034F17B /* Delicious.jpeg */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		351DF8BB2048C55600284B64 /* Redressed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Redressed-Regular.ttf"; sourceTree = "<group>"; };
 		3569DB542025D36A003593D4 /* PullToShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToShow.swift; sourceTree = "<group>"; };
 		35A04AB8202338C200E5CD12 /* SpringAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimation.swift; sourceTree = "<group>"; };
 		35C3974520269BF00034F17B /* Delicious.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Delicious.jpeg; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		351DF8BA2048C54300284B64 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				351DF8BB2048C55600284B64 /* Redressed-Regular.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		35C3974420269BDD0034F17B /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +158,7 @@
 				35C3974420269BDD0034F17B /* Images */,
 				C95B18152016C4E700D3A59E /* UI Elements */,
 				C95B181C2016C66500D3A59E /* Extensions */,
+				351DF8BA2048C54300284B64 /* Resources */,
 				C981024C2016C293000D78E2 /* Assets.xcassets */,
 				C981024E2016C293000D78E2 /* LaunchScreen.storyboard */,
 				C98102512016C293000D78E2 /* Info.plist */,
@@ -241,6 +252,7 @@
 				35C3974820269C020034F17B /* Steak.jpg in Resources */,
 				C9C7192020478EFF000D6416 /* landscape8.png in Resources */,
 				C981024B2016C293000D78E2 /* Main.storyboard in Resources */,
+				351DF8BC2048C55600284B64 /* Redressed-Regular.ttf in Resources */,
 				35C397502026B4CF0034F17B /* Mountain.jpg in Resources */,
 				35C3974620269BF10034F17B /* Delicious.jpeg in Resources */,
 			);

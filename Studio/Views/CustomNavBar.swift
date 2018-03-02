@@ -30,6 +30,11 @@ class CustomNavBar: UIViewController {
         let dismissButton = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(handleDismiss))
         
         navigationItem.leftBarButtonItem = dismissButton
+        navigationItem.title = "Fanstastic Journey"
+        
+        guard let customeFont = UIFont(name: "Redressed-Regular", size: 30) else {
+            fatalError("Can't find custom font")
+        }
         
         // Custome navigation bar
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -37,7 +42,8 @@ class CustomNavBar: UIViewController {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = .white
         
-        let titleAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
+        let titleAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white,
+                               NSAttributedStringKey.font: customeFont]
         navigationController?.navigationBar.titleTextAttributes = titleAttributes
         
         setupViews()
@@ -54,6 +60,7 @@ class CustomNavBar: UIViewController {
     private func setupViews() {
         let wallpaper = UIImageView(image: UIImage(named: imageName))
         wallpaper.contentMode = .scaleAspectFill
+        wallpaper.clipsToBounds = true
         
         view.addSubview(wallpaper)
         view.addConstraints(format: "H:|[v0]|", views: wallpaper)
@@ -154,7 +161,5 @@ class WallpaperView4: WallpaperView2 {
         super.viewDidLoad()
         
         navigationItem.title = "Sunset"
-        let titleAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = titleAttributes
     }
 }
