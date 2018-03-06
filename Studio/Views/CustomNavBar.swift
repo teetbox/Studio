@@ -58,6 +58,8 @@ class CustomNavBar: UIViewController {
         UIView.animate(withDuration: 2, delay: 2, options: [.allowUserInteraction, .autoreverse, .repeat, .curveEaseIn], animations: {
             self.footprint.alpha = 0.4
         })
+        
+        setupLoadingView()
     }
     
     private func setupViews() {
@@ -73,6 +75,65 @@ class CustomNavBar: UIViewController {
         view.addConstraints(format: "H:[v0(32)]", views: footprint)
         view.addConstraints(format: "V:[v0(32)]-40-|", views: footprint)
         footprint.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    let loadingView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    let loadingImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "nightCity.png")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 15.0
+        return imageView
+    }()
+    
+    lazy var gradientView: UIView = {
+        let view = UIView()
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 20, height: 80)
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.init(white: 1.0, alpha: 0.5).cgColor, UIColor.clear.cgColor]
+        view.layer.addSublayer(gradientLayer)
+        return view
+    }()
+    
+    func setupLoadingView() {
+        view.addSubview(loadingView)
+        view.addConstraints(format: "H:|-10-[v0]-10-|", views: loadingView)
+        view.addConstraints(format: "V:|-20-[v0]-20-|", views: loadingView)
+        
+        loadingView.alpha = 0
+        loadingView.addSubview(loadingImage)
+        loadingView.addConstraints(format: "H:|[v0]|", views: loadingImage)
+        loadingView.addConstraints(format: "V:|[v0]|", views: loadingImage)
+        
+        gradientView.alpha = 0
+        loadingImage.addSubview(gradientView)
+        loadingImage.addConstraints(format: "H:|[v0]|", views: gradientView)
+        loadingImage.addConstraints(format: "V:[v0(80)]|", views: gradientView)
+        
+        UIView.animate(withDuration: 0.4, delay: 0.5, options: [], animations: {
+            self.navigationController?.navigationBar.alpha = 0
+            self.loadingView.alpha = 1
+        }) { (success) in
+            self.gradientView.alpha = 1
+            UIView.animate(withDuration: 1, delay: 0.1, options: [], animations: {
+                self.gradientView.transform = CGAffineTransform(translationX: 0, y: -800)
+            }, completion: { (success) in
+                UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
+                    self.loadingView.transform = CGAffineTransform(translationX: 0, y: 10)
+                }, completion: { (success) in
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.loadingView.transform = CGAffineTransform(translationX: 0, y: -800)
+                        self.navigationController?.navigationBar.alpha = 1
+                    })
+                })
+            })
+        }
     }
     
     @objc func handleDismiss() {

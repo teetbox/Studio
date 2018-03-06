@@ -19,7 +19,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return table
     }()
     
-    let demos = ["Basic Animation", "Image Textfield", "Rotation Button", "Spring Animation", "Pull to Show", "Show Nav Bar", "Custom Nav Bar"]
+    let demos = ["Basic Animation", "Image Textfield", "Rotation Button", "Spring Animation", "Pull to Show", "Show Nav Bar", "Custom Nav Bar", "Gradient View"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +79,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //            CFRunLoopWakeUp(CFRunLoopGetCurrent())
             return
             
+        case 7:
+            demoViewController = GradientView()
         default:
             preconditionFailure("No display handler for demo: \(demos[indexPath.row]).")
         }
