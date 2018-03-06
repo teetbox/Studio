@@ -27,24 +27,27 @@ class CustomNavBar: UIViewController {
         
         view.backgroundColor = .white
         
-        let dismissButton = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(handleDismiss))
-        
-        navigationItem.leftBarButtonItem = dismissButton
-        navigationItem.title = "Fanstastic Journey"
-        
-        guard let customeFont = UIFont(name: "Redressed-Regular", size: 30) else {
-            fatalError("Can't find custom font")
-        }
+        // Dismiss button
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(handleDismiss))
         
         // Custome navigation bar
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "backfootprint")
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "backfootprint")
         
+        // Custome navigation item title
+        guard let customeFont = UIFont(name: "Redressed-Regular", size: 30) else {
+            fatalError("Can't find custom font")
+        }
         let titleAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white,
                                NSAttributedStringKey.font: customeFont]
+
         navigationController?.navigationBar.titleTextAttributes = titleAttributes
+        navigationItem.title = "Fanstastic Journey"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         setupViews()
     }
@@ -101,6 +104,8 @@ class WallpaperView2: UIViewController {
         
         view.backgroundColor = .white
         navigationItem.title = "Alone"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         setupViews()
     }
     
@@ -143,6 +148,37 @@ class WallpaperView3: WallpaperView2 {
         button.addTarget(self, action: #selector(handleFootprint), for: .touchUpInside)
         return button
     }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.title = "Alone ME"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        // Different fonts for navigation title
+        setCustomTitle()
+    }
+    
+    func setCustomTitle() {
+        let label1 = UILabel()
+        label1.text = "Alone"
+        label1.font = UIFont(name: "Redressed-Regular", size: 30)
+        label1.textColor = .white
+        label1.sizeToFit()
+        
+        let label2 = UILabel()
+        label2.text = "ME"
+        label2.font = UIFont(name: "Arial Rounded MT Bold", size: 30)
+        label2.textColor = .white
+        label2.sizeToFit()
+        
+        let stackView = UIStackView(arrangedSubviews: [label1, label2])
+        stackView.axis = .horizontal
+        stackView.frame.size.width = label1.frame.width + label2.frame.width
+        stackView.frame.size.height = max(label1.frame.height, label2.frame.height)
+        
+        navigationItem.titleView = stackView
+    }
     
     @objc override func handleFootprint() {
         navigationController?.pushViewController(WallpaperView4(), animated: true)
