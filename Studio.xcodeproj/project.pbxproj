@@ -24,6 +24,7 @@
 		C95B18202016CA3100D3A59E /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181F2016CA3100D3A59E /* UIView+Constraint.swift */; };
 		C95B18232016D2C000D3A59E /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18222016D2C000D3A59E /* AnimationView.swift */; };
 		C95B18252016D38000D3A59E /* ImageTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18242016D38000D3A59E /* ImageTextfield.swift */; };
+		C9656058205127CB004C2E45 /* PullRefreshVIew1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9656057205127CB004C2E45 /* PullRefreshVIew1.swift */; };
 		C98102462016C293000D78E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98102452016C293000D78E2 /* AppDelegate.swift */; };
 		C981024B2016C293000D78E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98102492016C293000D78E2 /* Main.storyboard */; };
 		C981024D2016C293000D78E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C981024C2016C293000D78E2 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		C95B181F2016CA3100D3A59E /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
 		C95B18222016D2C000D3A59E /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		C95B18242016D38000D3A59E /* ImageTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextfield.swift; sourceTree = "<group>"; };
+		C9656057205127CB004C2E45 /* PullRefreshVIew1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRefreshVIew1.swift; sourceTree = "<group>"; };
 		C98102422016C293000D78E2 /* Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C98102452016C293000D78E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C981024A2016C293000D78E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				35C3974B2026AD4F0034F17B /* ShowNavBar.swift */,
 				C9C71912204780C6000D6416 /* CustomNavBar.swift */,
 				C91CD635204E5CD500F0EE09 /* GradientView.swift */,
+				C9656057205127CB004C2E45 /* PullRefreshVIew1.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				C95B18232016D2C000D3A59E /* AnimationView.swift in Sources */,
 				3569DB552025D36A003593D4 /* PullToShow.swift in Sources */,
 				35A04AB9202338C200E5CD12 /* SpringAnimation.swift in Sources */,
+				C9656058205127CB004C2E45 /* PullRefreshVIew1.swift in Sources */,
 				C95B181B2016C5F300D3A59E /* MainViewController.swift in Sources */,
 				35C3974A2026A5DF0034F17B /* UIApplication+StatusBar.swift in Sources */,
 				35C3974C2026AD4F0034F17B /* ShowNavBar.swift in Sources */,
