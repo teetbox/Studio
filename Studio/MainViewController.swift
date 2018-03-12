@@ -19,7 +19,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return table
     }()
     
-    let demos = ["Basic Animation", "Image Textfield", "Rotation Button", "Spring Animation", "Pull to Show", "Show Nav Bar", "Custom Nav Bar", "Gradient View", "Pull Refresh 1"]
+    let demos = ["Basic Animation",         // 0
+                 "Image Textfield",         // 1
+                 "Rotation Button",         // 2
+                 "Spring Animation",        // 3
+                 "Pull to Show",            // 4
+                 "Show Nav Bar",            // 5
+                 "Custom Nav Bar",          // 6
+                 "Gradient View",           // 7
+                 "Pull Refresh 1",          // 8
+                 "Declarative Animation"    // 9
+                ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +93,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             demoViewController = GradientView()
         case 8:
             demoViewController = PullRefreshView1()
+        case 9:
+            demoViewController = DeclarativeAnimation()
         default:
             preconditionFailure("No display handler for demo: \(demos[indexPath.row]).")
         }

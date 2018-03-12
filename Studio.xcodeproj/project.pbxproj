@@ -18,6 +18,7 @@
 		35FC3DF1201CB16900BEB71C /* RotationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3DEF201CB16900BEB71C /* RotationButton.swift */; };
 		C91CD634204E305D00F0EE09 /* nightCity.png in Resources */ = {isa = PBXBuildFile; fileRef = C91CD633204E305D00F0EE09 /* nightCity.png */; };
 		C91CD636204E5CD500F0EE09 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91CD635204E5CD500F0EE09 /* GradientView.swift */; };
+		C926CC62205741740035E7EB /* DeclarativeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C926CC61205741740035E7EB /* DeclarativeAnimation.swift */; };
 		C95B18172016C52100D3A59E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18162016C52100D3A59E /* RoundButton.swift */; };
 		C95B181B2016C5F300D3A59E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181A2016C5F300D3A59E /* MainViewController.swift */; };
 		C95B181E2016C68500D3A59E /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181D2016C68500D3A59E /* UIColor+HEXString.swift */; };
@@ -52,6 +53,7 @@
 		35FC3DEF201CB16900BEB71C /* RotationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationButton.swift; sourceTree = "<group>"; };
 		C91CD633204E305D00F0EE09 /* nightCity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nightCity.png; sourceTree = "<group>"; };
 		C91CD635204E5CD500F0EE09 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		C926CC61205741740035E7EB /* DeclarativeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclarativeAnimation.swift; sourceTree = "<group>"; };
 		C95B18162016C52100D3A59E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		C95B181A2016C5F300D3A59E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C95B181D2016C68500D3A59E /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				C9C71912204780C6000D6416 /* CustomNavBar.swift */,
 				C91CD635204E5CD500F0EE09 /* GradientView.swift */,
 				C9656057205127CB004C2E45 /* PullRefreshVIew1.swift */,
+				C926CC61205741740035E7EB /* DeclarativeAnimation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				C95B18202016CA3100D3A59E /* UIView+Constraint.swift in Sources */,
 				C95B18232016D2C000D3A59E /* AnimationView.swift in Sources */,
 				3569DB552025D36A003593D4 /* PullToShow.swift in Sources */,
+				C926CC62205741740035E7EB /* DeclarativeAnimation.swift in Sources */,
 				35A04AB9202338C200E5CD12 /* SpringAnimation.swift in Sources */,
 				C9656058205127CB004C2E45 /* PullRefreshVIew1.swift in Sources */,
 				C95B181B2016C5F300D3A59E /* MainViewController.swift in Sources */,
