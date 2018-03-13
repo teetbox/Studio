@@ -222,12 +222,39 @@ class DeclarativeAnimation: UIViewController {
             ]),
             thirdLabel.animate([
                 .fadeIn()
-            ]),
-            topLeftView.animate(inParallel: [
-                .fadeIn(duration: 1),
-                .resize(to: CGSize(width: 300, height: 300), duration: 3)
             ])
+//            topLeftView.animate(inParallel: [
+//                .fadeIn(duration: 1),
+//                .resize(to: CGSize(width: 300, height: 300), duration: 3)
+//            ])
         ])
+        
+//        DispatchQueue.global().async {
+//            sleep(1)
+//            DispatchQueue.main.async {
+//                self.view.subviews.forEach { subView in
+//                    subView.layer.removeAllAnimations()
+//                }
+//            }
+//        }
+        
+        let bigAnimation = UIViewPropertyAnimator(duration: 3, curve: .easeOut) {
+            self.topLeftView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+            self.topLeftView.alpha = 1
+        }
+        
+        bigAnimation.startAnimation()
+        
+        DispatchQueue.global().async {
+            sleep(2)
+            
+            DispatchQueue.main.async {
+//                bigAnimation.stopAnimation(true)
+                bigAnimation.stopAnimation(false)
+                bigAnimation.finishAnimation(at: .start)
+            }
+        }
+        
     }
     
     let firstLabel: UILabel = {
