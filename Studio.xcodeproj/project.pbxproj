@@ -18,6 +18,7 @@
 		35FC3DF1201CB16900BEB71C /* RotationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC3DEF201CB16900BEB71C /* RotationButton.swift */; };
 		C91CD634204E305D00F0EE09 /* nightCity.png in Resources */ = {isa = PBXBuildFile; fileRef = C91CD633204E305D00F0EE09 /* nightCity.png */; };
 		C91CD636204E5CD500F0EE09 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91CD635204E5CD500F0EE09 /* GradientView.swift */; };
+		C9224DB52058928C004BE8D8 /* MenuBarCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9224DB42058928C004BE8D8 /* MenuBarCollection.swift */; };
 		C926CC62205741740035E7EB /* DeclarativeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C926CC61205741740035E7EB /* DeclarativeAnimation.swift */; };
 		C95B18172016C52100D3A59E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B18162016C52100D3A59E /* RoundButton.swift */; };
 		C95B181B2016C5F300D3A59E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95B181A2016C5F300D3A59E /* MainViewController.swift */; };
@@ -53,6 +54,7 @@
 		35FC3DEF201CB16900BEB71C /* RotationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationButton.swift; sourceTree = "<group>"; };
 		C91CD633204E305D00F0EE09 /* nightCity.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nightCity.png; sourceTree = "<group>"; };
 		C91CD635204E5CD500F0EE09 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		C9224DB42058928C004BE8D8 /* MenuBarCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCollection.swift; sourceTree = "<group>"; };
 		C926CC61205741740035E7EB /* DeclarativeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeclarativeAnimation.swift; sourceTree = "<group>"; };
 		C95B18162016C52100D3A59E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		C95B181A2016C5F300D3A59E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				C91CD635204E5CD500F0EE09 /* GradientView.swift */,
 				C9656057205127CB004C2E45 /* PullRefreshVIew1.swift */,
 				C926CC61205741740035E7EB /* DeclarativeAnimation.swift */,
+				C9224DB42058928C004BE8D8 /* MenuBarCollection.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				35A04AB9202338C200E5CD12 /* SpringAnimation.swift in Sources */,
 				C9656058205127CB004C2E45 /* PullRefreshVIew1.swift in Sources */,
 				C95B181B2016C5F300D3A59E /* MainViewController.swift in Sources */,
+				C9224DB52058928C004BE8D8 /* MenuBarCollection.swift in Sources */,
 				35C3974A2026A5DF0034F17B /* UIApplication+StatusBar.swift in Sources */,
 				35C3974C2026AD4F0034F17B /* ShowNavBar.swift in Sources */,
 				C95B181E2016C68500D3A59E /* UIColor+HEXString.swift in Sources */,

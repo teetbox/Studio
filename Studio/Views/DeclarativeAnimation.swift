@@ -249,7 +249,11 @@ class DeclarativeAnimation: UIViewController {
             sleep(2)
             
             DispatchQueue.main.async {
+                // either call stop(true) or stop(false) with finish(at:) together
+                
 //                bigAnimation.stopAnimation(true)
+                
+                
                 bigAnimation.stopAnimation(false)
                 bigAnimation.finishAnimation(at: .start)
             }

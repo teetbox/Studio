@@ -28,7 +28,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                  "Custom Nav Bar",          // 6
                  "Gradient View",           // 7
                  "Pull Refresh 1",          // 8
-                 "Declarative Animation"    // 9
+                 "Declarative Animation",   // 9
+                 "Menu Bar Collection"      // 10
                 ]
     
     override func viewDidLoad() {
@@ -95,6 +96,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             demoViewController = PullRefreshView1()
         case 9:
             demoViewController = DeclarativeAnimation()
+        case 10:
+            demoViewController = MenuBarCollection()
         default:
             preconditionFailure("No display handler for demo: \(demos[indexPath.row]).")
         }
