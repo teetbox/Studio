@@ -29,6 +29,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                  "Gradient View",           // 7
                  "Pull Refresh 1",          // 8
                  "Declarative Animation",   // 9
+                 "Scroll View",             // 10
                  "Menu Bar Collection"      // 10
                 ]
     
@@ -36,6 +37,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         setupViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
     }
     
     private func setupViews() {
@@ -97,9 +104,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         case 9:
             demoViewController = DeclarativeAnimation()
         case 10:
-            demoViewController = MenuBarCollection()
+            demoViewController = ScrollView()
         default:
-            preconditionFailure("No display handler for demo: \(demos[indexPath.row]).")
+            demoViewController = MenuBarCollection()
         }
         navigationController?.pushViewController(demoViewController, animated: true)
     }
