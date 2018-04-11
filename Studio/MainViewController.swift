@@ -37,6 +37,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         setupViews()
+        
+        showFontFamily()
+    }
+    
+    func showFontFamily() {
+        for name in UIFont.familyNames {
+            print(name)
+            print(UIFont.fontNames(forFamilyName: name))
+            print("-----------------------------------")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
