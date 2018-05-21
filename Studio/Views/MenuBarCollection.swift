@@ -94,31 +94,71 @@ class MenuBarCollection: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        navigationController?.navigationBar.isHidden = true
         
         setupViews()
     }
     
+    @objc func backHandler() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     private func setupViews() {
-        let subViews = [topView, menuView, contentView]
-        subViews.forEach(view.addSubview)
+//        backScrollView.contentSize = view.bounds.size
+//        view.addSubview(backScrollView)
+//        view.addConstraints(format: "H:|[v0]|", views: backScrollView)
+//        view.addConstraints(format: "V:|[v0]|", views: backScrollView)
+
+        view.addSubview(backButton)
+        view.addConstraints(format: "H:|-15-[v0(32)]", views: backButton)
+        view.addConstraints(format: "V:|-30-[v0(32)]", views: backButton)
         
+        view.addSubview(topView)
         view.addConstraints(format: "H:|[v0]|", views: topView)
         view.addConstraints(format: "V:|[v0(200)]", views: topView)
         
+        view.addSubview(backImage)
+        view.addConstraints(format: "H:|[v0]|", views: backImage)
+        view.addConstraints(format: "V:|-(-25)-[v0]", views: backImage)
+        backImage.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -50).isActive = true
+        
+        view.addSubview(menuView)
         view.addConstraints(format: "H:|[v0]|", views: menuView)
         view.addConstraints(format: "V:[v0(100)]", views: menuView)
         menuView.topAnchor.constraint(equalTo: topView.bottomAnchor).isActive = true
         menuView.parentVC = self
         
+        view.addSubview(contentView)
         view.addConstraints(format: "H:|[v0]|", views: contentView)
         view.addConstraints(format: "V:[v0]|", views: contentView)
         contentView.topAnchor.constraint(equalTo: menuView.bottomAnchor).isActive = true
+        
+        view.bringSubview(toFront: backButton)
     }
+    
+    let backScrollView: UIScrollView = {
+        let scrollView = UIScrollView(frame: UIScreen.main.bounds)
+        return scrollView
+    }()
+    
+    lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "back"), for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(backHandler), for: .touchUpInside)
+        return button
+    }()
     
     let topView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.fromHEX(string: "#ABCDEF")
         return view
+    }()
+    
+    let backImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "wwdc")
+        return imageView
     }()
     
     let menuView: MenuBarView = {
@@ -158,17 +198,6 @@ extension MenuBarCollection: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ContentCell
         cell.backgroundColor = .white
-
-        switch indexPath.item {
-        case 0:
-            cell.backgroundColor = .green
-        case 1:
-            cell.backgroundColor = .blue
-        case 2:
-            cell.backgroundColor = .orange
-        default:
-            fatalError()
-        }
         return cell
     }
     

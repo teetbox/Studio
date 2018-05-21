@@ -22,6 +22,14 @@ class PullToShow: UIViewController {
         return view
     }()
     
+    lazy var whereButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Where", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(handleWhere), for: .touchUpInside)
+        return button
+    }()
+    
     lazy var backButton: UIButton = {
         let button = UIButton()
         button.setTitle("Back", for: .normal)
@@ -35,7 +43,11 @@ class PullToShow: UIViewController {
     var initialCenter = CGPoint()
     var previousCenter = CGPoint()
     var isPlayDisplayed = false
-    var playViewBottomConstraint: NSLayoutConstraint?
+    var playViewBottomConstraint: NSLayoutConstraint? {
+        didSet {
+            print(playViewBottomConstraint?.constant)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +80,7 @@ class PullToShow: UIViewController {
         navView.addConstraints(format: "V:[v0(30)]-15-|", views: backButton)
         
         view.addSubview(playView)
+        playView.alpha = 0.5
         view.addConstraints(format: "H:|[v0]|", views: playView)
         view.addConstraints(format: "V:[v0(400)]", views: playView)
         playView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -77,12 +90,21 @@ class PullToShow: UIViewController {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         playView.addGestureRecognizer(panGesture)
         
+        view.addSubview(whereButton)
+        view.addConstraints(format: "H:[v0(60)]-15-|", views: whereButton)
+        view.addConstraints(format: "V:|-20-[v0(30)]", views: whereButton)
+        
         view.bringSubview(toFront: navView)
         view.bringSubview(toFront: playView)
+        view.bringSubview(toFront: whereButton)
     }
     
     @objc func handleBack() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func handleWhere() {
+        print(#function)
     }
     
     @objc func handlePanGesture(_ gestureRecognizer : UIPanGestureRecognizer) {
@@ -95,6 +117,8 @@ class PullToShow: UIViewController {
         if gestureRecognizer.state == .began {
             // Save the view's original position.
             previousCenter = panView.center
+            print("Begin")
+            view.bringSubview(toFront: playView)
         }
         // Update the position for the .began, .changed, and .ended states
         if gestureRecognizer.state != .cancelled {
@@ -116,12 +140,15 @@ class PullToShow: UIViewController {
                         self.playView.center = self.initialCenter
                     }, completion: { (true) in
                         self.isPlayDisplayed = false
+                        print("4")
+                        self.view.bringSubview(toFront: self.whereButton)
                     })
                 } else {
                     UIView.animate(withDuration: 0.4, animations: {
                         self.playView.center = self.view.center
                     }, completion: { (true) in
                         self.isPlayDisplayed = true
+                        print("3")
                     })
                 }
             } else {
@@ -130,12 +157,14 @@ class PullToShow: UIViewController {
                         self.playView.center = self.view.center
                     }, completion: { (true) in
                         self.isPlayDisplayed = true
+                        print("1")
                     })
                 } else {
                     UIView.animate(withDuration: 0.4, animations: {
                         self.playView.center = self.initialCenter
                     }, completion: { (true) in
                         self.isPlayDisplayed = false
+                        print("2")
                     })
                 }
                 

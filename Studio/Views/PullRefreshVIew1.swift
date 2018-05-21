@@ -32,10 +32,10 @@ class PullRefreshView1: UIViewController {
     func setupRefresher() {
         refresher = UIRefreshControl()
         refresher.tintColor = .red
-//        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         collectionView.alwaysBounceVertical = true
         collectionView.addSubview(refresher)
+        //        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
     }
     
     @objc func handleRefresh() {

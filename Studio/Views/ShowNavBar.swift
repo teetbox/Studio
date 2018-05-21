@@ -33,6 +33,10 @@ class ShowNavBar: UIViewController {
         setupViews()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     private func setupViews() {
         view.addSubview(collectionView)
         view.addConstraints(format: "H:|[v0]|", views: collectionView)
